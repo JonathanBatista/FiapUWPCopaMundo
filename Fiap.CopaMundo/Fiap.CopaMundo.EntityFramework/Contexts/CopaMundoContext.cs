@@ -5,6 +5,8 @@ namespace Fiap.CopaMundo.EntityFramework.Contexts
 {
     public class CopaMundoContext : DbContext
     {
+
+
         public DbSet<Configuracao> Configuracoes { get; set; }
 
         public DbSet<Grupo> Grupos { get; set; }

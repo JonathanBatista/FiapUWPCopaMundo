@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fiap.CopaMundo.Core\Fiap.CopaMundo.Core.csproj" />
+    <ProjectReference Include="..\Fiap.CopaMundo.EntityFramework\Fiap.CopaMundo.EntityFramework.csproj" />
+  </ItemGroup>
+
+</Project>

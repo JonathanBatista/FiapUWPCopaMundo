@@ -15,4 +15,8 @@
     <ProjectReference Include="..\Fiap.CopaMundo.Core\Fiap.CopaMundo.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\Database\" />
+  </ItemGroup>
+
 </Project>

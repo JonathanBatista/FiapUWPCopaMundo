@@ -1250,6 +1250,7 @@ namespace Fiap.CopaMundo.EntityFramework.Migrations.SeedData
 
                 dbContext.Grupos.AddRange(grupos);
                 dbContext.SaveChanges();
+                
             }
         }
     }

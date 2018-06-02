@@ -1,6 +1,8 @@
 ﻿using Fiap.CopaMundo.EntityFramework.Contexts;
 using Fiap.CopaMundo.EntityFramework.Migrations.SeedData;
 using System;
+using System.IO;
+using System.Reflection;
 
 namespace Fiap.CopaMundo.NetCore.ConsoleApp
 {
@@ -8,10 +10,7 @@ namespace Fiap.CopaMundo.NetCore.ConsoleApp
     {
         static void Main(string[] args)
         {
-            using (var ctx = new CopaMundoContext())
-            {
-                CopaMundoSeedData.SeedCopaMundo(ctx);
-            }
+            
         }
     }
 }

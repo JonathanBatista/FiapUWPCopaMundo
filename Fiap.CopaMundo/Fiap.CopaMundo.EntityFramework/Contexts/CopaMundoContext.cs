@@ -1,6 +1,7 @@
 ﻿using Fiap.CopaMundo.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.IO;
 
 namespace Fiap.CopaMundo.EntityFramework.Contexts
 {
@@ -29,7 +30,7 @@ namespace Fiap.CopaMundo.EntityFramework.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite($"Filename={Environment.CurrentDirectory}\\..\\Fiap.CopaMundo.EntityFramework\\Migrations\\Database\\copamundo.db");
+            optionsBuilder.UseSqlite("Data Source=copamundo.db");
         }
     }
 }

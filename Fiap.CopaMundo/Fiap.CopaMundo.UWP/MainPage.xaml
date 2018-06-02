@@ -7,7 +7,51 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <NavigationView x:Name="NavBar"
+                    ItemInvoked="NavBar_ItemInvoked"
+                    Loaded="NavBar_Loaded"
+                    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    </Grid>
+        <NavigationView.HeaderTemplate>
+            <DataTemplate>
+                <Grid Margin="24,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                    FontSize="28"
+                    VerticalAlignment="Center"
+                    Text="{Binding Header, ElementName=NavBar}"/>
+                </Grid>
+            </DataTemplate>
+        </NavigationView.HeaderTemplate>
+
+        <NavigationView.MenuItems>
+            <NavigationViewItemHeader Content="Copa do Mundo" Visibility="{x:Bind NavBar.IsPaneOpen, Mode=OneWay}"/>
+
+            <NavigationViewItem x:Uid="SumarioGrupo" Content="Sumário de Grupos" Tag="sumariogrupo">
+                <NavigationViewItem.Icon>
+                    <FontIcon Glyph="&#xE10F;"/>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+            <NavigationViewItem x:Name="Selecoes" Content="Seleções" Tag="selecoes">
+                <NavigationViewItem.Icon>
+                    <FontIcon Glyph="GridView"></FontIcon>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+            <!--<NavigationViewItem x:Name="Partida" Content="Partidas" Tag="partidas">
+                <NavigationViewItem.Icon>
+                    <FontIcon Glyph="GridView"></FontIcon>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>-->
+        </NavigationView.MenuItems>
+
+        <NavigationView.Content>
+            <Frame x:Name="ContentFrame" Margin="24">
+                
+            </Frame>
+        </NavigationView.Content>
+        
+    </NavigationView>
 </Page>

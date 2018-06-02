@@ -99,6 +99,22 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Views\JogadorPage.xaml.cs">
+      <DependentUpon>JogadorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelecaoPage.xaml.cs">
+      <DependentUpon>SelecaoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SumarioGrupoPage.xaml.cs">
+      <DependentUpon>SumarioGrupoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabelaGrupoPage.xaml.cs">
+      <DependentUpon>TabelaGrupoPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -125,18 +141,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\JogadorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelecaoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SumarioGrupoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TabelaGrupoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.6</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp">
+      <Version>3.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fiap.CopaMundo.ApplicationServices\Fiap.CopaMundo.ApplicationServices.csproj">
-      <Project>{6b805ad3-2f09-4110-a138-e6a02f44947e}</Project>
-      <Name>Fiap.CopaMundo.ApplicationServices</Name>
+    <ProjectReference Include="..\Fiap.CopaMundo.Core\Fiap.CopaMundo.Core.csproj">
+      <Project>{EDCFD692-9AFB-4017-90AC-51F0D7BD0BCB}</Project>
+      <Name>Fiap.CopaMundo.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fiap.CopaMundo.EntityFramework\Fiap.CopaMundo.EntityFramework.csproj">
+      <Project>{F54F7AFE-FD22-443F-BEAE-68999FA124CB}</Project>
+      <Name>Fiap.CopaMundo.EntityFramework</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

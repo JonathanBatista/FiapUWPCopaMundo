@@ -48,7 +48,7 @@
         </NavigationView.MenuItems>
 
         <NavigationView.Content>
-            <Frame x:Name="ContentFrame" Margin="24">
+            <Frame x:Name="ContentFrame"  Margin="24">
                 
             </Frame>
         </NavigationView.Content>

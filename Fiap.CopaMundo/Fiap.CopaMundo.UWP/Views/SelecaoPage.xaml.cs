@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fiap.CopaMundo.UWP.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,21 @@ namespace Fiap.CopaMundo.UWP.Views
     /// </summary>
     public sealed partial class SelecaoPage : Page
     {
+        public SelecaoViewModel ViewModel { get; } = new SelecaoViewModel();
+
         public SelecaoPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            object parameter = e.Parameter;
+
+            if (parameter is int)
+                ViewModel.CarregarSelecao((int)parameter);
+            else
+                throw new ArgumentException();
         }
     }
 }

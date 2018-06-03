@@ -40,7 +40,7 @@ namespace Fiap.CopaMundo.UWP
 
             if (args.IsSettingsInvoked)
             {
-                //NavigationService.Navigate<ConfiguracoesPage>();
+                NavigationService.Navigate<SettingsView>();
             }
             else
             {
@@ -98,6 +98,15 @@ namespace Fiap.CopaMundo.UWP
         private void NavBar_Loaded(object sender, RoutedEventArgs e)
         {
             ((NavigationViewItem)NavBar.SettingsItem).Content = "Configurações";
+
+
+            var navItem = NavBar.MenuItems.FirstOrDefault(item => item is NavigationViewItem && ((NavigationViewItem)item).Tag.Equals("sumariogrupo")) as NavigationViewItem;
+
+            if (navItem != null)
+            {
+                navItem.IsSelected = true;
+                NavBar_Navigate(navItem as NavigationViewItem);
+            }
         }
     }
 }

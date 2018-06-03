@@ -1,5 +1,6 @@
 ﻿using Fiap.CopaMundo.Core.Models;
 using Fiap.CopaMundo.EntityFramework.Contexts;
+using Fiap.CopaMundo.UWP.ViewModels;
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
@@ -26,16 +27,17 @@ namespace Fiap.CopaMundo.UWP.Views
     /// 
     public sealed partial class SumarioGrupoPage : Page
     {
-        public List<Grupo> Grupos { get; set; }
+        public SumarioGrupoViewModel ViewModel { get; } = new SumarioGrupoViewModel();
 
         public SumarioGrupoPage()
         {
             this.InitializeComponent();
-            
-            using (var ctx = new CopaMundoContext())
-            {
-                Grupos = ctx.Grupos.OrderBy(x => x.Identificador).ToList();
-            }
+            Loaded += SumarioGrupoPage_Loaded;
+        }
+
+        private void SumarioGrupoPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Initialize();
         }
     }
 }

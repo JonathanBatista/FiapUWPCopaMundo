@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fiap.CopaMundo.UWP.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,24 @@ namespace Fiap.CopaMundo.UWP.Views
     /// </summary>
     public sealed partial class TabelaGrupoPage : Page
     {
+
+        public TabelaGrupoViewModel ViewModel { get; } = new TabelaGrupoViewModel();
+
         public TabelaGrupoPage()
         {
             this.InitializeComponent();
+        }
+
+
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            object parameter = e.Parameter;
+
+            if (parameter is int)
+                await ViewModel.CarregarTabelaAsync((int)parameter);
+            else
+                throw new ArgumentException();
+            
         }
     }
 }

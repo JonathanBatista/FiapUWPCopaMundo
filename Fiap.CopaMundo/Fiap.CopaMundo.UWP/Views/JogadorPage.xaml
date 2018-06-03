@@ -5,10 +5,51 @@
     xmlns:local="using:Fiap.CopaMundo.UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:Fiap.CopaMundo.UWP.UserControls"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:models="using:Fiap.CopaMundo.Core.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
 
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition />
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Page.Resources>
+        <DataTemplate x:Key="JogadorItemTemplate" x:DataType="models:Jogador">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Height="50" Width="50" Grid.Column="0" Source="/Assets/StoreLogo.png" VerticalAlignment="Center"></Image>
+                <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Bind Nome}" Style="{ThemeResource ListTitleStyle}"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DetailsTemplate">
+            <views:JogadorControl Jogador="{Binding}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="NoSelectionContentTemplate">
+            <TextBlock x:Uid="MasterDetail_NoSelection" Style="{StaticResource ListNoSelectionTextStyle}" />
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid x:Name="ContentArea">
+        <controls:MasterDetailsView
+                        x:Name="MasterDetailsViewControl"
+                        ItemsSource="{x:Bind ViewModel.Jogadores}"
+                        SelectedItem="{x:Bind ViewModel.Selecionado, Mode=TwoWay}"
+                        ItemTemplate="{StaticResource JogadorItemTemplate}"
+                        DetailsTemplate="{StaticResource DetailsTemplate}"
+                        NoSelectionContentTemplate="{StaticResource NoSelectionContentTemplate}"
+                        BorderBrush="Transparent"/>
     </Grid>
 </Page>

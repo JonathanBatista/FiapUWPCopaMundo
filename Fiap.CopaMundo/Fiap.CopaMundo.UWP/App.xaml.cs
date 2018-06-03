@@ -1,5 +1,6 @@
 ﻿using Fiap.CopaMundo.EntityFramework.Contexts;
 using Fiap.CopaMundo.EntityFramework.Migrations.SeedData;
+using Fiap.CopaMundo.UWP.Views;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Windows.ApplicationModel;

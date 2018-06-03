@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Fiap.CopaMundo.Core.Enum;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,6 +10,8 @@ namespace Fiap.CopaMundo.Core.Models
     {
         [StringLength(50)]
         public string Nome { get; set; }
+
+        public TipoPosicao PosicaoFavorita { get; set; }
 
         public short Idade { get; set; }
 

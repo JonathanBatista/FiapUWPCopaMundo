@@ -1,4 +1,5 @@
-﻿using Fiap.CopaMundo.UWP.ViewModels;
+﻿using Fiap.CopaMundo.UWP.Services;
+using Fiap.CopaMundo.UWP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,6 +29,8 @@ namespace Fiap.CopaMundo.UWP.Views
         public SelecaoPage()
         {
             InitializeComponent();
+
+            //SelecaoListView.Width = ContentFr
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -39,5 +42,12 @@ namespace Fiap.CopaMundo.UWP.Views
             else
                 throw new ArgumentException();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate<JogadorPage>(ViewModel.Selecao.Id);
+        }
+
+        
     }
 }

@@ -21,25 +21,19 @@ namespace Fiap.CopaMundo.UWP.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class JogadorPage : Page
+    public sealed partial class SelecoesPage : Page
     {
-        public JogadorViewModel ViewModel { get; } = new JogadorViewModel();
+        public SelecaoViewModel ViewModel { get; } = new SelecaoViewModel();
 
-        public JogadorPage()
+        public SelecoesPage()
         {
             this.InitializeComponent();
+            Loaded += SelecoesPage_Loaded;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void SelecoesPage_Loaded(object sender, RoutedEventArgs e)
         {
-            object parameter = e.Parameter;
-
-            if (parameter is int)
-                ViewModel.CarregarJogadoresPorSelecao((int)parameter);
-            else if(parameter == null)
-                ViewModel.CarregarTodos();
-            else
-                throw new ArgumentException();
+            ViewModel.CarregarTodasSelecoes();
         }
     }
 }

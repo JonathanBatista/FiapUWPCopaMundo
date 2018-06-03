@@ -8,51 +8,44 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    
+    <ListView
+                Name="listaGrupos" 
+                ItemsSource="{x:Bind ViewModel.Grupos, Mode=OneWay}" 
+                HorizontalContentAlignment="Stretch"
+                SelectionChanged="{x:Bind ViewModel.ListaGrupos_SelectionChanged}">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="models:Grupo">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <VariableSizedWrapGrid Margin="15" HorizontalAlignment="Center">
-            <ListView ScrollViewer.VerticalScrollMode="Auto" 
-                      Name="listaGrupos" ItemsSource="{x:Bind ViewModel.Grupos, Mode=OneWay}" 
-                      HorizontalAlignment="Stretch"
-                      SelectionChanged="{x:Bind ViewModel.ListaGrupos_SelectionChanged}">
-                <ListView.HeaderTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>                                
-                            </Grid.RowDefinitions>                            
-                        </Grid>
-                    </DataTemplate>
-                </ListView.HeaderTemplate>
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Grupo">
-                        <Grid BorderBrush="Black" HorizontalAlignment="Stretch">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0"  FontSize="24">
+                        <Run Text="Grupo " />
+                        <Run Text="{x:Bind Identificador}"/>
+                    </TextBlock>
 
-                            <TextBlock Grid.Row="0" Grid.Column="0"  FontSize="24">
-                                <Run Text="Grupo " />
-                                <Run Text="{x:Bind Identificador}"/>
-                            </TextBlock>
-
-                            <Image Grid.Row="1" Grid.Column="0" Height="175" Width="175" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Assets/StoreLogo.png" />
-                            <Image Grid.Row="1" Grid.Column="1" Height="175" Width="175" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Assets/StoreLogo.png" />
-                            <Image Grid.Row="1" Grid.Column="2" Height="175" Width="175" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Assets/StoreLogo.png" />
-                            <Image Grid.Row="1" Grid.Column="3" Height="175" Width="175" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Assets/StoreLogo.png" />
-                        </Grid>   
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-                
-            </ListView>            
-        </VariableSizedWrapGrid>
-    </Grid>
+                    <Image Grid.Row="1" Grid.Column="0" Source="/Assets/StoreLogo.png" />
+                    <Image Grid.Row="1" Grid.Column="1" Source="/Assets/StoreLogo.png" />
+                    <Image Grid.Row="1" Grid.Column="2" Source="/Assets/StoreLogo.png" />
+                    <Image Grid.Row="1" Grid.Column="3" Source="/Assets/StoreLogo.png" />
+                </Grid>   
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            </Style>
+        </ListView.ItemContainerStyle>
+    </ListView>
 </Page>

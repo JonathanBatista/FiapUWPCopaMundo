@@ -37,7 +37,7 @@
             </NavigationViewItem>
             <NavigationViewItem x:Name="Selecoes" Content="Seleções" Tag="selecoes">
                 <NavigationViewItem.Icon>
-                    <FontIcon Glyph="GridView"></FontIcon>
+                    <SymbolIcon Symbol="57641" />
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
             <!--<NavigationViewItem x:Name="Partida" Content="Partidas" Tag="partidas">

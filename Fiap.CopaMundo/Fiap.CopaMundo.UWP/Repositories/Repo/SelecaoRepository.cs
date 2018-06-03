@@ -15,7 +15,7 @@ namespace Fiap.CopaMundo.UWP.Repositories.Repo
         {
             using (var ctx = new CopaMundoContext())
             {
-                return ctx.Selecoes;
+                return ctx.Selecoes.ToList();
             }
         }
 
@@ -35,6 +35,8 @@ namespace Fiap.CopaMundo.UWP.Repositories.Repo
                             .Include(x => x.Jogadores)
                             .Include(x => x.Tabela)
                             .Include(x => x.Grupo)
+                            .Include(x => x.Configuracoes)
+                                .ThenInclude(o => o.Usuario)
                             .ToList();
             }
         }
@@ -47,6 +49,8 @@ namespace Fiap.CopaMundo.UWP.Repositories.Repo
                             .Include(x => x.Jogadores)
                             .Include(x => x.Tabela)
                             .Include(x => x.Grupo)
+                            .Include(x => x.Configuracoes)
+                                .ThenInclude(o => o.Usuario)
                             .Where(expression)
                             .ToList();
             }
@@ -60,6 +64,8 @@ namespace Fiap.CopaMundo.UWP.Repositories.Repo
                             .Include(x => x.Jogadores)
                             .Include(x => x.Tabela)
                             .Include(x => x.Grupo)
+                            .Include(x => x.Configuracoes)
+                                .ThenInclude(o => o.Usuario)
                             .FirstOrDefault(expression);
             }
         }

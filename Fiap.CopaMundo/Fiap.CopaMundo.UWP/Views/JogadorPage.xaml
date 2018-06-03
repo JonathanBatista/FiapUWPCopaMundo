@@ -23,14 +23,21 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="10" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Image Height="50" Width="50" Grid.Column="0" Source="/Assets/StoreLogo.png" VerticalAlignment="Center"></Image>
-                <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                    <TextBlock Text="{x:Bind Nome}" Style="{ThemeResource ListTitleStyle}"/>
+                <PersonPicture Grid.Column="0" VerticalAlignment="Center"
+                            FontSize="15"
+                            Width="50"
+                            Height="50"
+                            ProfilePicture="/Assets/StoreLogo.png"/>
+
+                <StackPanel Grid.Column="2" Orientation="Vertical">
+                    <TextBlock Text="{x:Bind Nome}" FontSize="24" Style="{ThemeResource TitleTextBlockStyle}" />
+                    <TextBlock Text="{x:Bind Selecao.Pais}" FontSize="14" Style="{ThemeResource SubheaderTextBlockStyle}" />
                 </StackPanel>
-            </Grid>
+            </Grid>            
         </DataTemplate>
 
         <DataTemplate x:Key="DetailsTemplate">

@@ -57,7 +57,7 @@ namespace Fiap.CopaMundo.UWP
                     NavigationService.Navigate<SumarioGrupoPage>();
                     break;
                 case "selecoes":
-                    NavigationService.Navigate<SelecaoPage>();
+                    NavigationService.Navigate<SelecoesPage>();
                     break;
                 default:
                     NavigationService.Navigate<SumarioGrupoPage>();
@@ -79,7 +79,8 @@ namespace Fiap.CopaMundo.UWP
                 Dictionary<Type, string> lookup = new Dictionary<Type, string>()
                 {
                     {typeof(SumarioGrupoPage), "sumariogrupo"},
-                    {typeof(SelecaoPage), "selecoes"},
+                    {typeof(SelecoesPage), "selecoes"},
+                    {typeof(SelecaoPage), ""},
                     {typeof(JogadorPage), ""},
                     {typeof(TabelaGrupoPage), ""}
                 };

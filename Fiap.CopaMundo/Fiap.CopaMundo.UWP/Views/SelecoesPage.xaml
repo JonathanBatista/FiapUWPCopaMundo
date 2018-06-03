@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Fiap.CopaMundo.UWP.Views.SelecoesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Fiap.CopaMundo.UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Fiap.CopaMundo.Core.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <GridView ItemsSource="{x:Bind ViewModel.Selecoes}"
+              SelectionChanged="{x:Bind ViewModel.ListaSelecoes_SelectionChanged}">
+        <GridView.ItemTemplate>
+            <DataTemplate x:Name="ImageOverlayDataTemplate" x:DataType="models:Selecao">
+                <Grid Height="180" Width="320" AutomationProperties.Name="{x:Bind Pais}">
+                    <Image Source="/Assets/StoreLogo.png" Stretch="UniformToFill"/>
+                    <StackPanel Orientation="Vertical" Height="60" VerticalAlignment="Bottom" Background="{ThemeResource SystemBaseLowColor}" Padding="12">
+                        <TextBlock Text="{x:Bind Pais}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseMediumBrush}"/>
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </GridView.ItemTemplate>
+        <GridView.ItemsPanel>
+            <ItemsPanelTemplate>
+                <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal"/>
+            </ItemsPanelTemplate>
+        </GridView.ItemsPanel>
+    </GridView>
+</Page>

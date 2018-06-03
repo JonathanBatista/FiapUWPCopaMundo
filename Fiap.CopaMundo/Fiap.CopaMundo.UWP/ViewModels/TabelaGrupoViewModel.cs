@@ -48,7 +48,7 @@ namespace Fiap.CopaMundo.UWP.ViewModels
 
         public void VoltarButton_Button_Clicked(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate<SumarioGrupoPage>();
+            NavigationService.GoBack();
         }
 
         public void ListaSelecoes_SelectionChanged(object sender, SelectionChangedEventArgs e)

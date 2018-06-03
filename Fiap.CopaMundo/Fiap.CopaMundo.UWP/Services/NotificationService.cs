@@ -18,7 +18,7 @@ namespace Fiap.CopaMundo.UWP.Services
                 $@"<toast scenario='alarm'>
                 <visual>
                     <binding template='ToastGeneric'>
-                    <text>Uhuuul!! A partir de agora você passa a receber todas as sobre a seleção do(a) {selecao}!!</text>
+                    <text>Uhuuul!! A partir de agora você passa a receber todas as informações sobre a seleção do(a) {selecao}!!</text>
                     </binding>
                 </visual>
             </toast>";
